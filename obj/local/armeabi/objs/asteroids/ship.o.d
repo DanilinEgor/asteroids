@@ -89,14 +89,7 @@ obj/local/armeabi/objs/asteroids/ship.o: jni/ship.cpp jni/ship.h \
  /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/GLES2/gl2platform.h \
  /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/KHR/khrplatform.h \
  jni/asteroid.h \
- /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/android/log.h \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/algorithm \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_algo.h \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_heap.h \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_heap.c \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_algo.c \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_tempbuf.h \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_tempbuf.c
+ /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/android/log.h
 
 jni/ship.h:
 
@@ -281,17 +274,3 @@ jni/util.h:
 jni/asteroid.h:
 
 /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/android/log.h:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/algorithm:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_algo.h:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_heap.h:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_heap.c:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_algo.c:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_tempbuf.h:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_tempbuf.c:

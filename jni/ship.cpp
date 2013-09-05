@@ -2,12 +2,6 @@
 #include "util.h"
 #include <android/log.h>
 
-#include <algorithm>
-#include <math.h>
-#include <vector>
-
-#define _USE_MATH_DEFINES
-
 #define APPNAME "com.danegor.asteroidsgame"
 #define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,APPNAME,__VA_ARGS__)
 #define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,APPNAME,__VA_ARGS__)
@@ -139,7 +133,7 @@ void Ship::drawBullets(int w, int h) {
 				y2 = it->y2,
 				angle = it->angle;
 
-		if (x1 > 1.0f || x1 < -1.0f || y1 > 1.0f || y1 < -1.0f) {
+		if (x1 > 3.0f / 2.0f * (float) h / w || x1 < -3.0f / 2.0f * (float) h / w || y1 > 1.0f || y1 < -1.0f) {
 			bullets.erase(it);
 			continue;
 		}
@@ -178,4 +172,12 @@ float Ship::getX() {
 
 float Ship::getY() {
 	return y;
+}
+
+void Ship::setX(float xnew) {
+	x = xnew;
+}
+
+void Ship::setY(float ynew) {
+	y = ynew;
 }

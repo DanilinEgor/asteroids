@@ -8,13 +8,8 @@
 
 #include <android/log.h>
 
-#include <GLES2/gl2.h>
-#include <GLES2/gl2ext.h>
-
-#include <math.h>
 #include <ctime>
-#include <time.h>
-#include <vector>
+#include <unistd.h>
 
 #define LOG_TAG "com.danegor.asteroidsgame"
 #define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
@@ -29,8 +24,6 @@ std::vector<Bullet>* bullets;
 int gameW, gameH;
 int asteroidTimer;
 unsigned int asteroidProgram = 0, asteroidHandle = 0;
-
-float time1 = 0, time2 = 0, time3 = 0, time4 = 0;
 
 void on_init(int width, int height) {
 	srand((unsigned)time(0));
@@ -53,17 +46,8 @@ void on_init(int width, int height) {
     controller->init();
 }
 
-void on_resize() {
-    // No-op
-}
-
 void on_render() {
 	glClear(GL_COLOR_BUFFER_BIT);
-
-	timeval start;
-	timeval end;
-
-	LOGI("GAME asteroidProgram=%i", asteroidProgram);
 
 	asteroidTimer++;
 	asteroidTimer %= 50;
@@ -75,31 +59,24 @@ void on_render() {
 	}
 
 
-	gettimeofday(&start, NULL);
     ship->render(gameW, gameH);
-    gettimeofday(&end, NULL);
-    LOGI("GAME 1 time=%i msec", (end.tv_usec - start.tv_usec));
 
     bullets = ship->getBullets();
 
-#if 1
+#if 0
     LOGI("GAME asteroids.size = %d", asteroids.size());
 #endif
 
-	gettimeofday(&start, NULL);
     std::vector<Asteroid*>::iterator it = asteroids.begin();
     bool toCreateNewAsteroid = false;
+    bool toReset = false;
     float xNewAsteroid, yNewAsteroid;
     while (it < asteroids.end()) {
-    	LOGI("GAME 01");
-    	LOGI("GAME null? %d", (*it)==NULL);
     	float x = (*it)->getX(), y = (*it)->getY();
-    	LOGI("GAME 02");
     	if (checkIntersectionShipAndAsteroid(ship, *it)) {
-    		LOGI("SHIP crashed");
-    		exit(0);
+    		toReset = true;
+    		break;
     	}
-    	LOGI("GAME 1");
     	bool intersectedWithBullet = false;
     	for (std::vector<Bullet>::iterator itb = bullets->begin(); itb < bullets->end(); ++itb) {
     		if (checkIntersectionBulletAndAsteroid(itb, *it)) {
@@ -108,43 +85,26 @@ void on_render() {
     			break;
     	    }
     	}
-    	LOGI("GAME 2");
     	if (intersectedWithBullet) {
-    		LOGI("GAME 7");
     		if ((*it)->getBig()) {
     			toCreateNewAsteroid = true;
     			xNewAsteroid = x;
     			yNewAsteroid = y;
     		}
-    		LOGI("GAME 8");
-    		std::vector<Asteroid*>::iterator ita(it);
-    		++ita;
     		(*it)->~Asteroid();
-    		asteroids.erase(it);
-    		it = ita;
-    		LOGI("GAME 9");
+    		asteroids.erase(it++);
     		continue;
     	}
-    	LOGI("GAME 3");
     	if (x < -2.5f || x > 2.5f || y < -2.5f || y > 2.5f) {
-    		LOGI("GAME 41");
-    		std::vector<Asteroid*>::iterator ita(it);
-    		++ita;
     		(*it)->~Asteroid();
-    		asteroids.erase(it);
-			it = ita;
-    		LOGI("GAME 42");
+    		asteroids.erase(it++);
     		continue;
     	}
     	else {
-    		LOGI("GAME 5");
     		(*it)->render();
     		++it;
     	}
-    	LOGI("GAME 6");
     }
-    gettimeofday(&end, NULL);
-    LOGI("GAME 2 time=%i msec", (end.tv_usec - start.tv_usec));
 
     if (toCreateNewAsteroid) {
 		for (int i = 0; i < 3; ++i) {
@@ -153,32 +113,26 @@ void on_render() {
 		}
 	}
 
-    gettimeofday(&start, NULL);
+    if (toReset) {
+    	sleep(2);
+		ship->setAcceleration(0);
+		ship->setDirectionAngle(0);
+		ship->setRotationAngle(0);
+		ship->setSpeed(0);
+		ship->setX(0);
+		ship->setY(0);
+		bullets->clear();
+    	for (std::vector<Asteroid*>::iterator ita = asteroids.begin(); ita < asteroids.end(); ++ita)
+    		(*ita)->~Asteroid();
+    	asteroids.clear();
+    }
 
     space->render(gameW, gameH);
-
-    gettimeofday(&end, NULL);
-    LOGI("GAME 3 time=%i msec", (end.tv_usec - start.tv_usec));
-
-    gettimeofday(&start, NULL);
-
     controller->render(gameW, gameH);
-
-    gettimeofday(&end, NULL);
-    LOGI("GAME 4 time=%i msec", (end.tv_usec - start.tv_usec));
-
-}
-
-
-
-void on_pause() {
-}
-
-void on_resume() {
 }
 
 void on_touch(float* xs, float* ys, int touchCount, int ev) {
-	float acceleration = 0, angle = 0; //, predAngle = ship->getDirectionAngle();
+	float acceleration = 0, angle = 0;
 	if (controller->getAccelerationAndDirectionAngle(gameW, gameH, xs, ys, touchCount, acceleration, angle)) {
 		ship->setAcceleration(acceleration);
 		ship->setDirectionAngle(angle);
@@ -194,9 +148,5 @@ void on_touch(float* xs, float* ys, int touchCount, int ev) {
 
 	if (ev == 1 || ev == 6) {
 		ship->setAcceleration(0);
-//		ship->setDirectionAngle(predAngle);
 	}
-}
-
-void on_done() {
 }

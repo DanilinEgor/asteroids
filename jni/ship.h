@@ -25,6 +25,8 @@ public:
 	void getVertices(float*&);
 	float getX();
 	float getY();
+	void setX(float);
+	void setY(float);
 private:
 	float MAX_SPEED, SPEED_DECREASE, BULLETS_SPEED;
 	int BULLET_TIMER;

@@ -91,7 +91,6 @@ obj/local/armeabi/objs/asteroids/game.o: jni/game.cpp jni/game.h \
  /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/KHR/khrplatform.h \
  /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/jni.h \
  /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/android/log.h \
- /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/GLES2/gl2ext.h \
  /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/ctime \
  /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_ctime.h \
  /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/time.h \
@@ -99,7 +98,17 @@ obj/local/armeabi/objs/asteroids/game.o: jni/game.cpp jni/game.h \
  /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/sys/time.h \
  /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/linux/time.h \
  /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/asm/siginfo.h \
- /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/asm-generic/siginfo.h
+ /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/asm-generic/siginfo.h \
+ /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/unistd.h \
+ /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/sys/select.h \
+ /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/signal.h \
+ /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/../include/signal.h \
+ /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/asm/signal.h \
+ /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/asm-generic/signal.h \
+ /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/asm/sigcontext.h \
+ /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/sys/sysconf.h \
+ /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/linux/capability.h \
+ /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/pathconf.h
 
 jni/game.h:
 
@@ -293,8 +302,6 @@ jni/util.h:
 
 /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/android/log.h:
 
-/home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/GLES2/gl2ext.h:
-
 /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/ctime:
 
 /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_ctime.h:
@@ -310,3 +317,23 @@ jni/util.h:
 /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/asm/siginfo.h:
 
 /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/asm-generic/siginfo.h:
+
+/home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/unistd.h:
+
+/home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/sys/select.h:
+
+/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/signal.h:
+
+/home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/../include/signal.h:
+
+/home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/asm/signal.h:
+
+/home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/asm-generic/signal.h:
+
+/home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/asm/sigcontext.h:
+
+/home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/sys/sysconf.h:
+
+/home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/linux/capability.h:
+
+/home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/pathconf.h:

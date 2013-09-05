@@ -12,15 +12,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-JNIEXPORT void JNICALL Java_com_danegor_asteroidsgame_GameSurfaceView_nativePause
-  (JNIEnv *, jclass) {
-	on_pause();
-}
-
-JNIEXPORT void JNICALL Java_com_danegor_asteroidsgame_GameSurfaceView_nativeResume
-  (JNIEnv *, jclass) {
-	on_resume();
-}
 
 JNIEXPORT void JNICALL Java_com_danegor_asteroidsgame_GameSurfaceView_nativeTouch
   (JNIEnv *env, jclass, jfloatArray xs, jfloatArray ys, jint size, jint ev) {
@@ -36,19 +27,9 @@ JNIEXPORT void JNICALL Java_com_danegor_asteroidsgame_GameRenderer_nativeInit
 	on_init(w, h);
 }
 
-JNIEXPORT void JNICALL Java_com_danegor_asteroidsgame_GameRenderer_nativeResize
-  (JNIEnv *, jclass, jint, jint) {
-	on_resize();
-}
-
 JNIEXPORT void JNICALL Java_com_danegor_asteroidsgame_GameRenderer_nativeRender
   (JNIEnv *, jclass) {
 	on_render();
-}
-
-JNIEXPORT void JNICALL Java_com_danegor_asteroidsgame_GameRenderer_nativeDone
-  (JNIEnv *, jclass) {
-	on_done();
 }
 
 #ifdef __cplusplus

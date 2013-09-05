@@ -2,13 +2,6 @@
 #include "util.h"
 #include <android/log.h>
 
-#include <GLES2/gl2.h>
-
-#include <algorithm>
-#include <math.h>
-#include <time.h>
-
-#define _USE_MATH_DEFINES
 #define APPNAME "com.danegor.asteroidsgame"
 #define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,APPNAME,__VA_ARGS__)
 #define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,APPNAME,__VA_ARGS__)
@@ -136,31 +129,22 @@ void Asteroid::init(unsigned int &program, unsigned int &handle) {
 void Asteroid::render() {
 	glUseProgram(gProgram);
 
-	timeval start;
-	timeval end;
-
 #if 0
 	for (int i = 0; i < 2*numOfVertices+2; ++i) {
 		LOGI("ASTEROID vertices[%d]=%f", i, vertices[i]);
 	}
 #endif
 
-	LOGI("ASTEROID start");
 
 	for (int i = 0; i < 2*numOfVertices+2; i+=2) {
 		vertices[i] += speed * cos(angle);
 		vertices[i+1] += speed * sin(angle);
 	}
 
-	LOGI("ASTEROID middle");
 
-	gettimeofday(&start, NULL);
 	glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, vertices);
 	glEnableVertexAttribArray(gvPositionHandle);
 	glDrawArrays(GL_TRIANGLE_FAN, 0, (numOfVertices+1));
-	gettimeofday(&end, NULL);
-	LOGI("ASTEROID render time=%i msec", (end.tv_usec - start.tv_usec));
-	LOGI("ASTEROID finish");
 }
 
 float Asteroid::getX() {

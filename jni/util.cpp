@@ -12,8 +12,6 @@ static void checkGlError(const char* op) {
     }
 }
 
-
-
 GLuint loadShader(GLenum shaderType, const char* pSource) {
     GLuint shader = glCreateShader(shaderType);
     if (shader) {
@@ -119,7 +117,6 @@ bool checkIntersectionBulletAndAsteroid(Bullet* b, Asteroid* a) {
 }
 
 bool checkIntersectionShipAndAsteroid(Ship* s, Asteroid* a) {
-	LOGI("GAME 03");
 	float asteroidX = a->getX();
 	float asteroidY = a->getY();
 	float shipX = s->getX();
@@ -129,7 +126,6 @@ bool checkIntersectionShipAndAsteroid(Ship* s, Asteroid* a) {
 	s->getVertices(shipVertices);
 	float* asteroidVertices = a->getVertices();
 	int numOfVertices = a->getNumOfVertices();
-	LOGI("GAME 04");
 #if 0
 	for (int i = 0; i < 6; ++i)
 		LOGI("UTIL ship[%d]=%f", i, shipVertices[i]);
@@ -139,17 +135,14 @@ bool checkIntersectionShipAndAsteroid(Ship* s, Asteroid* a) {
 	for (int j = 0; j < 6; j+=2) {
 		for (int i = 2; i < numOfVertices * 2 - 2; i+=2)
 			if (checkIntersection(shipVertices[j], shipVertices[j+1], shipVertices[(j+2)%6], shipVertices[(j+3)%6], asteroidVertices[i], asteroidVertices[i+1], asteroidVertices[i+2], asteroidVertices[i+3])) {
-				LOGI("UTIL shipVertices[j]=%f, shipVertices[j+1]=%f, shipVertices[(j+2)%%6]=%f, shipVertices[(j+3)%%6]=%f, asteroidVertices[i]=%f, asteroidVertices[i+1]=%f, asteroidVertices[i+2]=%f, asteroidVertices[i+3]=%f", shipVertices[j], shipVertices[j+1], shipVertices[(j+2)%6], shipVertices[(j+3)%6], asteroidVertices[i], asteroidVertices[i+1], asteroidVertices[i+2], asteroidVertices[i+3]);
 				delete[] shipVertices;
 				return true;
 			}
 		if (checkIntersection(shipVertices[j], shipVertices[j+1], shipVertices[(j+2)%6], shipVertices[(j+3)%6], asteroidVertices[2*numOfVertices], asteroidVertices[2*numOfVertices+1], asteroidVertices[2], asteroidVertices[3])) {
-			LOGI("UTIL shipVertices[j]=%f, shipVertices[j+1]=%f, shipVertices[(j+2)%%6]=%f, shipVertices[(j+3)%%6]=%f, asteroidVertices[2*numOfVertices]=%f, asteroidVertices[2*numOfVertices+1]=%f, asteroidVertices[2]=%f, asteroidVertices[3]=%f", shipVertices[j], shipVertices[j+1], shipVertices[(j+2)%6], shipVertices[(j+3)%6], asteroidVertices[2*numOfVertices], asteroidVertices[2*numOfVertices+1], asteroidVertices[2], asteroidVertices[3]);
 			delete[] shipVertices;
 			return true;
 		}
 	}
-	LOGI("GAME 05");
 	delete[] shipVertices;
 	return false;
 }

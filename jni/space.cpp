@@ -1,8 +1,6 @@
 #include "space.h"
 #include "util.h"
 #include <android/log.h>
-#include <GLES2/gl2.h>
-#include <algorithm>
 
 #define APPNAME "com.danegor.asteroidsgame"
 #define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,APPNAME,__VA_ARGS__)

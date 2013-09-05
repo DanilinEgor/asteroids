@@ -79,17 +79,13 @@ class GameSurfaceView extends GLSurfaceView {
 	@Override
     public void onPause() {
         super.onPause();
-        nativePause();
     }
 
    @Override
     public void onResume() {
         super.onResume();
-        nativeResume();
     }
 	
-   private static native void nativePause();
-   private static native void nativeResume();
    private static native void nativeTouch(float[] xs, float[] ys, int size, int ev);
    
 }
@@ -104,7 +100,6 @@ class GameRenderer implements GLSurfaceView.Renderer {
 
 	@Override
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
-//        nativeResize(width, height);
 	}
 
 	@Override
@@ -114,8 +109,6 @@ class GameRenderer implements GLSurfaceView.Renderer {
 	}
 	
 	private static native void nativeInit(int width, int height);
-    private static native void nativeResize(int width, int height);
     private static native void nativeRender(int width, int height);
-    private static native void nativeDone();
 	
 }

@@ -89,14 +89,7 @@ obj/local/armeabi/objs/asteroids/controller.o: jni/controller.cpp \
  /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_range_errors.h \
  /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_bvector.h \
  /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_relops_cont.h \
- /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/android/log.h \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/algorithm \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_algo.h \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_heap.h \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_heap.c \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_algo.c \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_tempbuf.h \
- /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_tempbuf.c
+ /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/android/log.h
 
 jni/controller.h:
 
@@ -283,17 +276,3 @@ jni/ship.h:
 /home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_relops_cont.h:
 
 /home/egor/android-ndk-r9/platforms/android-18/arch-arm/usr/include/android/log.h:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/algorithm:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_algo.h:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_heap.h:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_heap.c:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_algo.c:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_tempbuf.h:
-
-/home/egor/android-ndk-r9/sources/cxx-stl/stlport/stlport/stl/_tempbuf.c:
